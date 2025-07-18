@@ -37,7 +37,7 @@ CASE
     WHEN task.msdyn_progress = 0 THEN 'Não iniciado'
     WHEN task.msdyn_progress > 0 THEN 'Em andamento'
     ELSE NULL 
-END AS TASK_PROGRESSO_TASK, *, Equipe
+END AS TASK_PROGRESSO_TASK
 
 FROM msdyn_project project
 
