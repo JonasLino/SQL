@@ -45,7 +45,7 @@ INNER JOIN msdyn_projecttask task
 ON task.msdyn_project = project.msdyn_projectid
 
 WHERE 1=1
-AND project.msdyn_subject LIKE 'Projeto - Ativação%'
+AND project.msdyn_subject LIKE 'Projeto -%'
 AND task.msdyn_subject NOT IN (
         SELECT DISTINCT t2.msdyn_parenttaskname
         FROM msdyn_projecttask t2
