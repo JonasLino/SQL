@@ -12,16 +12,15 @@ CONCAT(CAST(project.msdyn_effortremaining AS INT), ' horas') PROJECT_ESFORCO_RES
 project.msdyn_scheduledstart PROJECT_DT_INICIOPREVISTO,
 project.msdyn_taskearlieststart PROJECT_DT_INICIO,
 project.msdyn_finish PROJECT_DT_CONCLUSAO,
-project.msdyn_progress [PROJECT_%_CONCLUÍDO],
+project.msdyn_progress [PROJECT_%_CONCLUÃDO],
 CASE 
-    WHEN project.msdyn_progress = 1 THEN 'Concluído'
-    WHEN project.msdyn_progress = 0 THEN 'Não iniciado'
+    WHEN project.msdyn_progress = 1 THEN 'ConcluÃ­do'
+    WHEN project.msdyn_progress = 0 THEN 'NÃ£o iniciado'
     WHEN project.msdyn_progress > 0 THEN 'Em andamento'
     ELSE NULL 
-END AS PROJECT_PROGRESSO,
-*
+END AS PROJECT_PROGRESSO
 
 FROM msdyn_project project
 
 WHERE 1=1
-AND project.msdyn_subject LIKE 'Projeto - Ativação%'
+AND project.msdyn_subject LIKE 'Projeto - AtivaÃ§Ã£o%'
