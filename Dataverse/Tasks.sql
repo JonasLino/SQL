@@ -26,15 +26,15 @@ task.msdyn_finish TASK_DT_CONCLUSAO,
 
 CASE 
     WHEN task.msdyn_priority = 1 THEN 'Urgente'
-    WHEN task.msdyn_priority = 5 THEN 'Média'
+    WHEN task.msdyn_priority = 5 THEN 'MÃ©dia'
     WHEN task.msdyn_priority = 9 THEN 'Baixa'
 	WHEN task.msdyn_priority = 3 THEN 'Importante'
     ELSE NULL 
 END AS TASK_PRIORIDADE,
 
 CASE 
-    WHEN task.msdyn_progress = 1 THEN 'Concluído'
-    WHEN task.msdyn_progress = 0 THEN 'Não iniciado'
+    WHEN task.msdyn_progress = 1 THEN 'ConcluÃ­do'
+    WHEN task.msdyn_progress = 0 THEN 'NÃ£o iniciado'
     WHEN task.msdyn_progress > 0 THEN 'Em andamento'
     ELSE NULL 
 END AS TASK_PROGRESSO_TASK, *, Equipe
@@ -45,8 +45,7 @@ INNER JOIN msdyn_projecttask task
 ON task.msdyn_project = project.msdyn_projectid
 
 WHERE 1=1
-AND project.msdyn_subject LIKE 'Projeto - Ativação%'
---AND task.msdyn_subject LIKE 'Configurar%'
+AND project.msdyn_subject LIKE 'Projeto - AtivaÃ§Ã£o%'
 AND task.msdyn_subject NOT IN (
         SELECT DISTINCT t2.msdyn_parenttaskname
         FROM msdyn_projecttask t2
